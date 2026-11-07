@@ -1,0 +1,25 @@
+[package]
+name = "labcut"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.95"
+description = "Turn DXF and SVG drawings into laser-cutter G-code, with layers, preview and cut simulation"
+
+[[bin]]
+name = "labcut"
+path = "src/main.rs"
+
+[dependencies]
+eframe = "0.37"
+image = { version = "0.25", default-features = false, features = ["png"] }
+roxmltree = "0.21"
+rfd = "0.15"
+
+[profile.release]
+opt-level = 3
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 2
